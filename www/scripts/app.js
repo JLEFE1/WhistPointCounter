@@ -8,7 +8,10 @@ angular.module('starter', [
   'ionic',
   'starter.controllers',
   'pascalprecht.translate',
-  'settings'])
+  'settings',
+  'players',
+  'whist'
+  ])
 
   .run(function($ionicPlatform) {
 
