@@ -109,6 +109,15 @@ angular.module('pointCalculator', [
           }
         }
       })
+      .state('app.whistcalculatepoints', {
+        url: '/whist/whistcalculatepoints',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/whist/whistcalculatepoints.html',
+            controller: 'WhistCalculatePointController as vm'
+          }
+        }
+      })
       .state('app.settings', {
         url: '/settings',
         views: {

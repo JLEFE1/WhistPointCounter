@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "angular-translate": "~2.8.0",
+    "bootstrap": "~3.3.5",
     "ionic": "v1.0.0-rc.3",
     "ngCordova": "v0.1.14-alpha",
     "underscore": "~1.8.3"

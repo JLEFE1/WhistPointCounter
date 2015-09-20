@@ -24,8 +24,7 @@
         }());
 
         vm.addNewResult = function addNewResult() {
-          //TODO Add link when feature is added
-          //$state.go("app.whistcalculatepoints");
+          $state.go('app.whistcalculatepoints');
         };
 
         function areAllNamesFilledIn() {
@@ -52,7 +51,7 @@
 
         vm.fetchPlayerStatistics = function fetchPlayerStatistics(playerId) {
             //TODO Add link when feature is added
-            //$state.go("app.player", { id: playerId });
+            //$state.go('app.player', { id: playerId });
         };
     }
 
