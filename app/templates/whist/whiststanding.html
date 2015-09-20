@@ -1,0 +1,41 @@
+<ion-view view-title="{{ 'TITLE' | translate }}">
+    <ion-content>
+
+
+        <form name="startNewGame" ng-hide="vm.isGameStartedBool">
+
+            <button type="button" class="waves-effect waves-light btn" id="startNewGame" ng-click="vm.startNewGame()">
+                Start new game
+            </button>
+            <div class="alert alert-warning alert-dismissible" role="alert" ng-hide="vm.allNamesAreFilledIn">
+                <strong>{{ 'WARNING' | translate }}!</strong> {{ 'FILL_IN_NAMES' | translate }}
+            </div>
+        </form>
+
+        <form name="addNewResult" ng-show="vm.isGameStartedBool">
+            <button type="button" class="waves-effect waves-light btn" id="addNewResult" ng-click="vm.addNewResult()">
+                Add new result
+            </button>
+        </form>
+
+        <div class="container">
+            <form name="standingForm">
+                <div class="list card" ng-repeat="player in vm.game.players">
+                  <div class="item item-avatar">
+                    <img src="images/ionic.png">
+                    <input class="card-title" type="text" name="input" ng-model="player.name"
+                           placeholder="Add name" required="required">
+                    <span class="card-title">Points: {{player.totalPoints}}</span>
+                  </div>
+
+                  <div class="item item-body">
+                    <p ng-click="vm.fetchPlayerStatistics(player.id)">
+                      <a href="#">Player stats</a>
+                    </p>
+                  </div>
+                </div>
+            </form>
+        </div>
+
+    </ion-content>
+</ion-view>

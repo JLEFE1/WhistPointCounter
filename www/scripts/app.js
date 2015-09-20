@@ -4,16 +4,16 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', [
+angular.module('pointCalculator', [
   'ionic',
-  'starter.controllers',
+  'pointCalculator.controllers',
   'pascalprecht.translate',
   'settings',
   'players',
   'whist'
   ])
 
-  .run(function($ionicPlatform) {
+  .run(function($ionicPlatform, sharedPropertiesService) {
 
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -37,6 +37,8 @@ angular.module('starter', [
           });
         }, null);
       }
+
+      sharedPropertiesService.startNewGame();
 
     });
   })
@@ -98,11 +100,20 @@ angular.module('starter', [
       })
 
 
-      .state('app.settings', {
-        url: "/settings",
+      .state('app.whiststanding', {
+        url: '/whist/whiststanding',
         views: {
           'menuContent': {
-            templateUrl: "templates/I18n/settings.html",
+            templateUrl: 'templates/whist/whiststanding.html',
+            controller: 'WhistStandingController as vm'
+          }
+        }
+      })
+      .state('app.settings', {
+        url: '/settings',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/I18n/settings.html',
             controller: 'SettingsController as vm'
           }
         }
