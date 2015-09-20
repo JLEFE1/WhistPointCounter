@@ -127,6 +127,24 @@ angular.module('pointCalculator', [
           }
         }
       })
+      .state('app.players', {
+        url: "/players/players",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/players/players.html",
+            controller: 'PlayersController as vm'
+          }
+        }
+      })
+      .state('app.player', {
+        url: "/players/player/:id",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/players/player.html",
+            controller: 'PlayerController as vm'
+          }
+        }
+      })
 
 
     ;
