@@ -8,6 +8,7 @@ angular.module('pointCalculator', [
   'ionic',
   'pointCalculator.controllers',
   'pascalprecht.translate',
+  'checklist-model',
   'settings',
   'players',
   'whist'
