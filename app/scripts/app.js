@@ -145,6 +145,15 @@ angular.module('pointCalculator', [
           }
         }
       })
+      .state('app.changePoints', {
+        url: "/whist/changePoints",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/whist/changePoints.html",
+            controller: 'ChangePointsController as vm'
+          }
+        }
+      })
 
 
     ;

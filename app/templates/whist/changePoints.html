@@ -1,0 +1,21 @@
+<ion-view view-title="{{ 'CHANGE_POINTS' | translate }}">
+    <ion-content>
+
+        <div class="container">
+
+            <div class="alert alert-warning alert-dismissible" role="alert" ng-hide="vm.hasNoError">
+                <strong>{{ 'WARNING' | translate }}!</strong> {{ 'SUM_NOT_ZERO' | translate }}
+            </div>
+
+
+            <div ng-repeat="player in vm.points">
+                <h-number value="player.totalPoints" min="-2000000" max="1000000000" step="1"></h-number>
+            </div>
+
+            <button type="button" class="waves-effect waves-light btn" id="save" ng-click="vm.saveChanges()">
+                Save changes
+            </button>
+        </div>
+
+    </ion-content>
+</ion-view>
