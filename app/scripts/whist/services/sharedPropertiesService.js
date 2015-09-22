@@ -22,10 +22,10 @@
 
         var newGame = {
               players:
-                   [{id: 1, standing: 0, name: null, totalPoints:0, pointsOverview:[]},
-                       {id: 2, standing: 0, name: null, totalPoints:0, pointsOverview:[]},
-                       {id: 3, standing: 0, name: null, totalPoints:0, pointsOverview:[]},
-                       {id: 4, standing: 0, name: null, totalPoints:0, pointsOverview:[]}]
+                   [{id: 1, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]},
+                       {id: 2, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]},
+                       {id: 3, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]},
+                       {id: 4, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]}]
 
         };
 
@@ -37,7 +37,7 @@
       function startNewGameWithNames (players) {
         var startNewGame = {players: []};
         for (var i =0; i < players.length; i += 1){
-          var player = {id: i + 1, standing: 0, name: players[i], totalPoints:0, pointsOverview:[]};
+          var player = {id: i + 1, pointsEvolution: [], name: players[i], totalPoints:0, pointsOverview:[]};
           startNewGame.players.push(player);
         }
         setGame(startNewGame);

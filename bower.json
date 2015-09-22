@@ -2,8 +2,10 @@
   "name": "WhistPointCounter",
   "version": "0.0.0",
   "dependencies": {
+    "angular-chart.js": "~0.8.4",
     "angular-translate": "~2.8.0",
     "bootstrap": "~3.3.5",
+    "Chart.js": "chartjs#~1.0.2",
     "checklist-model": "~0.5.0",
     "ionic": "v1.0.0-rc.3",
     "ngCordova": "v0.1.14-alpha",

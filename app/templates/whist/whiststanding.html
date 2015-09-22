@@ -1,16 +1,12 @@
 <ion-view view-title="{{ 'TITLE' | translate }}">
     <ion-content>
-        <button type="button" class="waves-effect waves-light btn" id="addNewResult" ng-click="vm.addNewResult()">
+        <button class="button button-block button-dark" id="addNewResult" ng-click="vm.addNewResult()">
             Add new result
         </button>
 
         <div class="container">
-
-
-
           <div class="row">
-            <div class="col col-10"></div>
-            <div class="col col-35">
+            <div class="col col-47">
               <div class="list card">
                 <div class="item item-avatar">
                   <img src="images/ionic.png">
@@ -21,13 +17,12 @@
 
                 <div class="item item-body">
                   <p ng-click="vm.fetchPlayerStatistics(vm.game.players[0].id)">
-                    <a href="#">Player stats</a>
+                    <a href="#">Stats</a>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col col-10"></div>
-            <div class="col col-35">
+            <div class="col col-47">
               <div class="list card">
                 <div class="item item-avatar">
                   <img src="images/ionic.png">
@@ -38,16 +33,14 @@
 
                 <div class="item item-body">
                   <p ng-click="vm.fetchPlayerStatistics(vm.game.players[1].id)">
-                    <a href="#">Player stats</a>
+                    <a href="#">Stats</a>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col col-10"></div>
           </div>
 
           <div class="row">
-            <div class="col col-10"></div>
             <div class="col col-35">
               <div class="list card">
                 <div class="item item-avatar">
@@ -59,12 +52,11 @@
 
                 <div class="item item-body">
                   <p ng-click="vm.fetchPlayerStatistics(vm.game.players[2].id)">
-                    <a href="#">Player stats</a>
+                    <a href="#">Stats</a>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col col-10"></div>
             <div class="col col-35">
               <div class="list card">
                 <div class="item item-avatar">
@@ -76,12 +68,11 @@
 
                 <div class="item item-body">
                   <p ng-click="vm.fetchPlayerStatistics(vm.game.players[3].id)">
-                    <a href="#">Player stats</a>
+                    <a href="#">Stats</a>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col col-10"></div>
           </div>
 
 

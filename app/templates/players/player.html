@@ -1,9 +1,21 @@
 <ion-view view-title="{{ 'PLAYER' | translate }}">
     <ion-content>
 
-        {{vm.player.id}}
-        {{vm.player.name}}
-        {{vm.info.ranking}}
+      <div class="item item-avatar">
+        <img src="images/ionic.png">
+        <h2>{{vm.player.name}}</h2>
+        <p>Points: {{vm.info.ranking}}</p>
+      </div>
+
+      <div class="item item-body">
+        <canvas id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-legend="true" chart-series="series"
+                chart-click="onClick" >
+        </canvas>
+
+      </div>
+
+
 
     </ion-content>
 </ion-view>

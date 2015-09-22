@@ -9,6 +9,7 @@ angular.module('pointCalculator', [
   'pascalprecht.translate',
   'angularNumberPicker',
   'checklist-model',
+  'chart.js',
   'settings',
   'players',
   'whist'
@@ -104,6 +105,7 @@ angular.module('pointCalculator', [
         }
       })
       .state('app.player', {
+        cache: false,
         url: "/players/player/:id",
         views: {
           'menuContent': {

@@ -16,6 +16,7 @@
             //TODO Has do be done by player id
             game.players[playerId - 1].totalPoints = game.players[playerId - 1].totalPoints + points;
             game.players[playerId - 1].pointsOverview.push(points);
+            game.players[playerId - 1].pointsEvolution.push(game.players[playerId - 1].totalPoints + points);
 
             sharedPropertiesService.setGame(game);
         }
