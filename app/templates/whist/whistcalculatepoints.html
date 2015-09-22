@@ -17,6 +17,11 @@
 
                                             {{playerButton.name}}
                                         </button>
+
+                                         <span class="input-group-btn">
+                                            <button class="button button-outline button-dark" type="button" ng-click="vm.normalBidding()" translate="GO">Go!</button>
+                                        </span>
+
                                     </div>
                                     <div class="input-group">
 
@@ -24,9 +29,7 @@
 
                                         <h-number value="vm.numberOfTricks" min="-2000000" max="1000000000" step="1"></h-number>
 
-                                        <span class="input-group-btn">
-                                            <button class="button button-outline button-dark" type="button" ng-click="vm.normalBidding()" translate="GO">Go!</button>
-                                        </span>
+
                                     </div>
                                     <div role="alert">
                                 <span class="error" ng-show="normalBidding.input.$error.required">
@@ -42,48 +45,28 @@
                 <li>
                     <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('abondanceNine')">Abondance</button>
                     <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('abondanceNine')]">
-                        <div class="button button-outline button-dark" role="group">
-                            <button type="button" class="btn" id="abondanceNine_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
-                                    ng-click="vm.selectPlayer(playerButton.id, 1)"
-                                    ng-class="{true: 'teal lighten-3'}[vm.containsId(playerButton.id)]">
+                      <div class="btn-group" role="group">
+                        <button type="button" class="button button-outline button-dark" id="normal_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
+                                ng-click="vm.selectPlayer(playerButton.id, 2)"
+                                ng-class="{true: 'teal lighten-3'}[vm.containsId(playerButton.id)]">
 
-                                {{playerButton.name}}
-                            </button>
+                          {{playerButton.name}}
+                        </button>
+                      </div>
+                      <div>
                              <span >
                                 <button class="button button-outline button-dark" type="button" ng-click="vm.abondance(true)">Succes!</button>
                                  <button class="button button-outline button-dark" type="button" ng-click="vm.abondance(false)">Failed!</button>
                             </span>
-                            <form action="#">
 
                                 <table>
-                                    <thead>
-                                    <tr>
-                                        <th>9</th>
-                                        <th>10</th>
-                                        <th>11</th>
-                                        <th>12</th>
-                                    </tr>
-                                    </thead>
-
                                     <tbody>
-                                    <tr>
-                                        <td>  <input name="abondance" type="radio" id="abondanceTricks9" value="5" ng-model="vm.abondancePoints"/>
-                                            <label for="abondanceTricks9"></label></td>
-                                        <td>  <input name="abondance" type="radio" id="abondanceTricks10" value="7" ng-model="vm.abondancePoints"/>
-                                            <label for="abondanceTricks10"></label></td>
-                                        <td>  <input name="abondance" type="radio" id="abondanceTricks11" value="8"  ng-model="vm.abondancePoints"/>
-                                            <label for="abondanceTricks11"></label></td>
-                                        <td>  <input name="abondance" type="radio" id="abondanceTricks12" value="9"  ng-model="vm.abondancePoints"/>
-                                            <label for="abondanceTricks12"></label></td>
-                                    </tr>
-
+                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks9" ng-value="5">9</ion-radio></td>
+                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks10" ng-value="7">10</ion-radio></td>
+                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks11" ng-value="8">11</ion-radio></td>
+                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks12" ng-value="9">12</ion-radio></td>
                                     </tbody>
                                 </table>
-
-
-
-
-                            </form>
                         </div>
                     </div>
                 </li>

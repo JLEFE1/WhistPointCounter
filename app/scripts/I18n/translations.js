@@ -26,7 +26,7 @@ var translations = {
         'PLAYERS': 'Spelers',
         'CHANGE_POINTS': 'Verander punten',
         'PLAYER': 'Speler',
-        'CALCULATE_POINTS': 'Bereken points',
+        'CALCULATE_POINTS': 'Bereken punten',
         'SUM_NOT_ZERO': 'De som van de aangepaste punten is niet nul',
         'WARNING': 'Pas op',
         'FILL_IN_NAMES': 'Nog niet al de namen zijn ingevuld',
