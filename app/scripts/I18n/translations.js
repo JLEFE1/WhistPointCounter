@@ -12,7 +12,8 @@ var translations = {
         'CALCULATE_POINTS': 'Calculate points',
         'SUM_NOT_ZERO': 'Changed points do not add up to zero',
         'WARNING': 'Warning',
-        'FILL_IN_NAMES': 'Please fill in all the names'
+        'FILL_IN_NAMES': 'Please fill in all the names',
+        'STANDING': 'Standing'
 
     },
     'be': {
@@ -28,6 +29,7 @@ var translations = {
         'CALCULATE_POINTS': 'Bereken points',
         'SUM_NOT_ZERO': 'De som van de aangepaste punten is niet nul',
         'WARNING': 'Pas op',
-        'FILL_IN_NAMES': 'Nog niet al de namen zijn ingevuld'
+        'FILL_IN_NAMES': 'Nog niet al de namen zijn ingevuld',
+        'STANDING': 'Rangshikking'
     }
 };

@@ -1,22 +1,8 @@
 <ion-view view-title="{{ 'TITLE' | translate }}">
     <ion-content>
-
-
-        <form name="startNewGame" ng-hide="vm.isGameStartedBool">
-
-            <button type="button" class="waves-effect waves-light btn" id="startNewGame" ng-click="vm.startNewGame()">
-                Start new game
-            </button>
-            <div class="alert alert-warning alert-dismissible" role="alert" ng-hide="vm.allNamesAreFilledIn">
-                <strong>{{ 'WARNING' | translate }}!</strong> {{ 'FILL_IN_NAMES' | translate }}
-            </div>
-        </form>
-
-        <form name="addNewResult" ng-show="vm.isGameStartedBool">
-            <button type="button" class="waves-effect waves-light btn" id="addNewResult" ng-click="vm.addNewResult()">
-                Add new result
-            </button>
-        </form>
+        <button type="button" class="waves-effect waves-light btn" id="addNewResult" ng-click="vm.addNewResult()">
+            Add new result
+        </button>
 
         <div class="container">
             <form name="standingForm">

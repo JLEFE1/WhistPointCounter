@@ -10,6 +10,14 @@
 
         var game;
 
+        function getGame(){
+          return game;
+        }
+
+        function setGame(newGame){
+          game = newGame;
+        }
+
         var playersInGame = 4;
 
         var newGame = {
@@ -26,13 +34,16 @@
             return newGame;
         }
 
-         function getGame(){
-             return game;
-         }
+      function startNewGameWithNames (players) {
+        var startNewGame = {players: []};
+        for (var i =0; i < players.length; i += 1){
+          var player = {id: i + 1, standing: 0, name: players[i], totalPoints:0, pointsOverview:[]};
+          startNewGame.players.push(player);
+        }
+        setGame(startNewGame);
+      }
 
-         function setGame(newGame){
-             game = newGame;
-         }
+
 
          function getPlayersInGame(){
              return playersInGame;
@@ -85,7 +96,8 @@
              startNewGame: startNewGame,
              getPlayerIds: getPlayerIds,
              removePlayers: removePlayers,
-             alterPoints: alterPoints
+             alterPoints: alterPoints,
+             startNewGameWithNames: startNewGameWithNames
          };
 
     }

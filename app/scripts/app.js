@@ -13,7 +13,7 @@ angular.module('pointCalculator', [
   'whist'
   ])
 
-  .run(function($ionicPlatform, sharedPropertiesService) {
+  .run(function($ionicPlatform) {
 
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -38,8 +38,6 @@ angular.module('pointCalculator', [
         }, null);
       }
 
-      sharedPropertiesService.startNewGame();
-
     });
   })
 
@@ -60,6 +58,14 @@ angular.module('pointCalculator', [
         abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl'
+      })
+
+      .state('home', {
+        url: '/home',
+        templateUrl: 'templates/home.html',
+        controller: 'HomeController as vm'
+
+
       })
 
       .state('app.search', {
@@ -101,6 +107,7 @@ angular.module('pointCalculator', [
 
 
       .state('app.whiststanding', {
+        cache: false,
         url: '/whist/whiststanding',
         views: {
           'menuContent': {
@@ -158,5 +165,5 @@ angular.module('pointCalculator', [
 
     ;
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/playlists');
+    $urlRouterProvider.otherwise('/home');
   });
