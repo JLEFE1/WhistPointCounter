@@ -1,1 +1,60 @@
 /* Empty. Add your own CSS if you like */
+.error-container {
+  margin: 5px 0;
+}
+
+.error-container:last-child {
+  margin: 5px 0 0;
+}
+
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+
+.error i {
+  font-size: 24px;
+  color: #B83E2C;
+  vertical-align: middle;
+}
+
+.last-error-container > .error {
+  padding: 10px 16px 0;
+}
+
+.has-errors {
+  border-bottom: 3px solid #B83E2C;
+}
+
+.no-errors {
+  border-bottom: 3px solid green;
+}
+
+.button.selectedButton:after {
+  color: rgba(0, 200, 0, 0.4);
+}
+
+.dealer {
+  text-color: #B83E2C;
+  -ms-transform: rotate(-7deg); /* IE 9 */
+  -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+  transform: rotate(-7deg);
+  border: 3px solid #B83E2C;
+  position: absolute;
+  z-index: 100000;
+}
+
+.benched {
+  text-color: #B83E2C;
+  -ms-transform: rotate(7deg) translate(70%); /* IE 9 */
+  -webkit-transform: rotate(7deg) translate(70%); /* Chrome, Safari, Opera */
+  transform: rotate(7deg) translate(70%);
+
+  border: 3px solid #B83E2C;
+  position: absolute;
+  z-index: 100000;
+}

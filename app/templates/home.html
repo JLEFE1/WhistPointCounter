@@ -4,14 +4,49 @@
     <h1>Home</h1>
 
     <div class="container">
-      <div class="col col-60">
-        <button class="button button-block button-dark" id="startNewGame" ng-click="vm.startNewGame()">
-          Start new game
-        </button>
-        <button class="button button-block button-dark" id="resumeGame" ng-click="vm.resumeGame()">
-          Resume game
-        </button>
+
+      <button class="button button-block button-dark" id="startNewGame" ng-click="vm.startNewGame()">
+        Start new game
+      </button>
+
+      <div class="row">
+        <div class="col col-80 col-offset-10">
+          <form name="authorizationForm" novalidate="" ng-submit="vm.startNewGame()">
+
+            <label class="item item-input"
+                   ng-repeat="player in vm.players track by $index"
+                   ng-class="{ 'has-errors' : authorizationForm.player_{{$index}}.$invalid, 'no-errors' : authorizationForm.player_{{$index}}.$valid}">
+              <span class="input-label"></span>
+              <input type="text" name="player_{{$index}}" placeholder="Add name" ng-model="player.name" required>
+            </label>
+
+
+
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-center">
+         <button class="button button-dark" ng-click="vm.addPlayer()">
+           +
+            <i class="icon ion-android-person"></i>
+          </button>
+          <button class="button button-dark" ng-click="vm.removePlayer()">
+            -
+            <i class="icon ion-android-person"></i>
+          </button>
+        </div>
+      </div>
+
+      <button class="button button-block button-dark" id="resumeGame" ng-click="vm.resumeGame()">
+        Resume game
+      </button>
+
+
+
+
     </div>
-    </div>
+
   </ion-content>
 </ion-view>

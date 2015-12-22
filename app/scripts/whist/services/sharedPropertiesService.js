@@ -2,7 +2,7 @@
 (function (){
     'use strict';
 
-     angular.module('whist').factory('sharedPropertiesService',[sharedPropertiesService]);
+     angular.module('whist').factory('sharedPropertiesService', [sharedPropertiesService]);
 
 
 
@@ -18,28 +18,32 @@
           game = newGame;
         }
 
-        var playersInGame = 4;
-
-        var newGame = {
-              players:
-                   [{id: 1, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]},
-                       {id: 2, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]},
-                       {id: 3, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]},
-                       {id: 4, pointsEvolution: [], name: null, totalPoints:0, pointsOverview:[]}]
-
-        };
-
-        function startNewGame () {
-            setGame(newGame);
-            return newGame;
+      function initBenchedPlayers(initGame){
+        if(playersInGame === 5){
+          initGame.benchedPlayers.push(1);
+          initGame.players[0].dealer = true;
+        } else if (playersInGame === 6){
+          initGame.benchedPlayers.push(1);
+          initGame.benchedPlayers.push(4);
+          initGame.players[0].benched = true;
+          initGame.players[3].benched = true;
         }
+        return initGame;
+      }
+
+        var playersInGame;
 
       function startNewGameWithNames (players) {
-        var startNewGame = {players: []};
+        var startNewGame = {dealer: 1, players: [], benchedPlayers: [], points: []};
         for (var i =0; i < players.length; i += 1){
-          var player = {id: i + 1, pointsEvolution: [], name: players[i], totalPoints:0, pointsOverview:[]};
+          var player = {id: i + 1, pointsEvolution: [], name: players[i], totalPoints:0, pointsOverview:[], dealer:false, benched:false};
           startNewGame.players.push(player);
         }
+
+        playersInGame = startNewGame.players.length;
+        startNewGame.players[0].dealer = true;
+
+        startNewGame = initBenchedPlayers(startNewGame);
         setGame(startNewGame);
       }
 
@@ -70,11 +74,13 @@
          }
 
          function getPlayerIds(){
-            return [1, 2, 3, 4];
+            return _.pluck(game.players,'id');
          }
 
          function removePlayers(players){
-            return _.difference(getPlayerIds(), players);
+           var withoutActivePlayers = _.difference(getPlayerIds(), players);
+           var withoutBenchedPlayers =_.difference(withoutActivePlayers, game.benchedPlayers);
+           return withoutBenchedPlayers;
          }
 
          //TODO Has to be based on payer id and not index
@@ -83,6 +89,53 @@
                 game.players[i].totalPoints = points[i].totalPoints;
             }
          }
+
+      function updateDealer(){
+        var currentDealerId = game.dealer;
+        var currentDealer = getPlayerById(currentDealerId);
+        var nextDealer;
+        if (currentDealerId < game.players.length) {
+          game.dealer = currentDealerId + 1;
+          nextDealer = getPlayerById(currentDealerId + 1);
+        } else {
+          game.dealer = 1;
+          nextDealer = getPlayerById(1);
+        }
+        currentDealer.dealer = false;
+        nextDealer.dealer = true;
+
+      }
+
+      function updateBenchedPlayers(){
+        var currentBenchedPlayers = game.benchedPlayers;
+        //TODO shoulde be  game.benchedPlayers.length = 0; => but
+        // clears also all references
+        // need a copy
+        game.benchedPlayers = [];
+
+        for (var i = 0; i < currentBenchedPlayers.length;i++) {
+
+          var benchedPlayerId = currentBenchedPlayers[i];
+          var benchedPlayer = getPlayerById(benchedPlayerId);
+          var nextBenchedPlayer;
+          if (benchedPlayerId < game.players.length) {
+            game.benchedPlayers.push(benchedPlayerId + 1);
+            nextBenchedPlayer = getPlayerById(benchedPlayerId + 1);
+          } else {
+            game.benchedPlayers.push(1);
+            nextBenchedPlayer = getPlayerById(1);
+          }
+          benchedPlayer.benched = false;
+          nextBenchedPlayer.benched = true;
+
+        }
+
+
+      }
+        function updateDealerAndBenchedPlayers(){
+          updateDealer();
+          updateBenchedPlayers();
+        }
 
 
          return {
@@ -93,11 +146,11 @@
              getIdByName: getIdByName,
              getNameById: getNameById,
              getPlayerById: getPlayerById,
-             startNewGame: startNewGame,
              getPlayerIds: getPlayerIds,
              removePlayers: removePlayers,
              alterPoints: alterPoints,
-             startNewGameWithNames: startNewGameWithNames
+             startNewGameWithNames: startNewGameWithNames,
+           updateDealerAndBenchedPlayers: updateDealerAndBenchedPlayers
          };
 
     }

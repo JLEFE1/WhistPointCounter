@@ -9,6 +9,7 @@ angular.module('pointCalculator', [
   'pascalprecht.translate',
   'angularNumberPicker',
   'checklist-model',
+  'ngMessages',
   'chart.js',
   'settings',
   'players',
@@ -67,6 +68,26 @@ angular.module('pointCalculator', [
         controller: 'HomeController as vm'
       })
 
+      .state('app.whiststandingOdd', {
+        cache: false,
+        url: '/whist/whiststandingOdd',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/whist/whiststandingOdd.html',
+            controller: 'WhistStandingController as vm'
+          }
+        }
+      })
+      .state('app.whiststandingEven', {
+        cache: false,
+        url: '/whist/whiststandingEven',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/whist/whiststandingEven.html',
+            controller: 'WhistStandingController as vm'
+          }
+        }
+      })
       .state('app.whiststanding', {
         cache: false,
         url: '/whist/whiststanding',
@@ -96,29 +117,30 @@ angular.module('pointCalculator', [
         }
       })
       .state('app.players', {
-        url: "/players/players",
+        url: '/players/players',
         views: {
           'menuContent': {
-            templateUrl: "templates/players/players.html",
+            templateUrl: 'templates/players/players.html',
             controller: 'PlayersController as vm'
           }
         }
       })
       .state('app.player', {
         cache: false,
-        url: "/players/player/:id",
+        url: '/players/player/:id',
         views: {
           'menuContent': {
-            templateUrl: "templates/players/player.html",
+            templateUrl: 'templates/players/player.html',
             controller: 'PlayerController as vm'
           }
         }
       })
       .state('app.changePoints', {
-        url: "/whist/changePoints",
+        cache: false,
+        url: '/whist/changePoints',
         views: {
           'menuContent': {
-            templateUrl: "templates/whist/changePoints.html",
+            templateUrl: 'templates/whist/changePoints.html',
             controller: 'ChangePointsController as vm'
           }
         }

@@ -1,137 +1,181 @@
 <ion-view view-title="{{ 'CALCULATE_POINTS' | translate }}"
           ng-init="vm.createButtons()"
           xmlns="http://www.w3.org/1999/html">
-    <ion-content>
+  <ion-content>
 
-        <div class="container">
-             <ul>
-                <li>
-                    <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('normal')">Normal bidding</button>
-                        <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('normal')]">
-                            <form id="normalBiddingForm" name="normalBidding">
-                                <div>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="button button-outline button-dark" id="normal_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
-                                                ng-click="vm.selectPlayer(playerButton.id, 2)"
-                                                ng-class="{true: 'teal lighten-3'}[vm.containsId(playerButton.id)]">
-
-                                            {{playerButton.name}}
-                                        </button>
-
-                                         <span class="input-group-btn">
-                                            <button class="button button-outline button-dark" type="button" ng-click="vm.normalBidding()" translate="GO">Go!</button>
-                                        </span>
-
-                                    </div>
-                                    <div class="input-group">
-
-                                        <!-- This directive should be fixed-->
-
-                                        <h-number value="vm.numberOfTricks" min="-2000000" max="1000000000" step="1"></h-number>
+    <div class="container">
 
 
-                                    </div>
-                                    <div role="alert">
-                                <span class="error" ng-show="normalBidding.input.$error.required">
-                                  Required!</span>
-                                <span class="error" ng-show="normalBidding.input.$error.number">
-                                  Not valid number!</span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                </li>
+      <div class="row">
+        <div class="col col-80 col-offset-10">
+          <div class="row">
+            <div class="col col-25">
+              <ion-radio ng-model="vm.trull" name="trull" id="trullYes" ng-value="true">Yes</ion-radio>
+            </div>
+            <div class="col col-25">
+              <ion-radio ng-model="vm.trull" name="trull" id="trullNo" ng-value="false">No</ion-radio>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                <li>
-                    <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('abondanceNine')">Abondance</button>
-                    <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('abondanceNine')]">
-                      <div class="btn-group" role="group">
-                        <button type="button" class="button button-outline button-dark" id="normal_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
-                                ng-click="vm.selectPlayer(playerButton.id, 2)"
-                                ng-class="{true: 'teal lighten-3'}[vm.containsId(playerButton.id)]">
+
+
+
+
+
+      <ul>
+        <li>
+          <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('normal')">Normal bidding</button>
+          <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('normal')]">
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="button-bar">
+                  <button class="button block button-dark" id="normal_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
+                          ng-click="vm.selectPlayer(playerButton.id, 2)"
+                          ng-class="{true: 'active'}[vm.containsId(playerButton.id)]">
+
+                    {{playerButton.name}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <h-number value="vm.numberOfTricks" min="-2000000" max="1000000000" step="1"></h-number>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                  <button class="button button-block button-dark" type="button" ng-click="vm.normalBidding()" translate="GO">Go!</button>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('abondanceNine')">Abondance</button>
+          <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('abondanceNine')]">
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                  <div class="button-bar">
+                    <div class="button-bar">
+                      <button class="button button-block button-dark"  id="abondance_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
+                            ng-click="vm.selectPlayer(playerButton.id, 1)"
+                            ng-class="{true: 'active'}[vm.containsId(playerButton.id)]">
 
                           {{playerButton.name}}
-                        </button>
-                      </div>
-                      <div>
-                             <span >
-                                <button class="button button-outline button-dark" type="button" ng-click="vm.abondance(true)">Succes!</button>
-                                 <button class="button button-outline button-dark" type="button" ng-click="vm.abondance(false)">Failed!</button>
-                            </span>
-
-                                <table>
-                                    <tbody>
-                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks9" ng-value="5">9</ion-radio></td>
-                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks10" ng-value="7">10</ion-radio></td>
-                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks11" ng-value="8">11</ion-radio></td>
-                                      <td><ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks12" ng-value="9">12</ion-radio></td>
-                                    </tbody>
-                                </table>
-                        </div>
+                      </button>
                     </div>
-                </li>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="row">
+                  <div class="col col-25">
+                    <ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks9" ng-value="5">9</ion-radio>
+                  </div>
+                  <div class="col col-25">
+                    <ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks10" ng-value="7">10</ion-radio>
+                  </div>
+                  <div class="col col-25">
+                    <ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks11" ng-value="8">11</ion-radio>
+                  </div>
+                  <div class="col col-25">
+                    <ion-radio ng-model="vm.abondancePoints" name="abondance" id="abondanceTricks12" ng-value="9">12</ion-radio>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="button-bar">
+                  <button class="button button-block button-dark" ng-click="vm.abondance(true)">Succes!</button>
+                  <button class="button button-block button-dark" ng-click="vm.abondance(false)">Failed!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
-                <li>
-                    <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('soloSlim')">soloSlim</button>
-                    <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('soloSlim')]">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="button button-outline button-dark" id="soloSlim_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
-                                    ng-click="vm.selectPlayer(playerButton.id, 1)"
-                                    ng-class="{true: 'teal lighten-3'}[vm.containsId(playerButton.id)]">
+        <li>
+          <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('soloSlim')">soloSlim</button>
+          <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('soloSlim')]">
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="button-bar">
+                  <button type="button" class="button button-block button-dark" id="soloSlim_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
+                          ng-click="vm.selectPlayer(playerButton.id, 1)"
+                          ng-class="{true: 'active'}[vm.containsId(playerButton.id)]">
 
-                                {{playerButton.name}}
-                            </button>
-                             <span >
-                                <button class="button button-outline button-dark" type="button" ng-click="vm.soloSlim(true)">Succes!</button>
-                                 <button class="button button-outline button-dark" type="button" ng-click="vm.soloSlim(false)">Failed!</button>
-                            </span>
-                        </div>
-                    </div>
-                </li>
+                      {{playerButton.name}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="button-bar">
+                  <button class="button button-block button-dark" type="button" ng-click="vm.soloSlim(true)">Succes!</button>
+                  <button class="button button-block button-dark" type="button" ng-click="vm.soloSlim(false)">Failed!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
-                <li>
-                    <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('miserie')">Miserie</button>
-                    <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('miserie')]">
+        <li>
+          <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('miserie')">Miserie</button>
+          <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('miserie')]">
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="row">
+                  <div class="col col-33 col-offset-33">Succeeded</div>
+                  <div class="col col-33">Failed</div>
+                </div>
+                <div class="row" ng-repeat="playerButton in vm.playerButtons track by $index">
+                  <div class="col col-33"> {{playerButton.name}}</div>
+                  <div class="col col-33"><input type="checkbox" id="m_checkbox_true_{{playerButton.playerId}}" checklist-value="playerButton.playerId" checklist-model="vm.miserieSelectionTrue"/>
+                    <label for="m_checkbox_true_{{playerButton.playerId}}"></label></div>
+                  <div class="col col-33"><input type="checkbox" id="m_checkbox_false_{{playerButton.playerId}}" checklist-value="playerButton.playerId" checklist-model="vm.miserieSelectionFalse"/>
+                    <label for="m_checkbox_false_{{playerButton.playerId}}"></label></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+               <button class="button button-block button-dark" type="button" ng-click="vm.miserie()">Calculate!</button>
+              </div>
+            </div>
+          </div>
+        </li>
 
+        <li>
+          <button class="button button-block button-dark" ng-click="vm.setPlayTypeCheck('rafachol')">Rafachol</button>
+          <div ng-class="{true: 'show', false: 'hide'}[vm.activePlayType('rafachol')]">
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="button-bar">
+                  <button class="button block button-dark" id="rafachol_{{playerButton.id}}" ng-repeat="playerButton in vm.playerButtons"
+                          ng-click="vm.selectPlayer(playerButton.id, 1)"
+                          ng-class="{true: 'active'}[vm.containsId(playerButton.id)]">
 
-                        <table>
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Succeeded</th>
-                                <th>Failed</th>
-                            </tr>
-                            </thead>
+                    {{playerButton.name}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <button class="button button-block button-dark" type="button" ng-click="vm.rafachol()" translate="GO">Go!</button>
+              </div>
+            </div>
+          </div>
+        </li>
 
-                            <tbody>
+      </ul>
+    </div>
 
-                            <tr ng-repeat="playerButton in vm.playerButtons track by $index">
-                                <td>
-                                    {{playerButton.name}}
-                                </td>
-
-                                <td>  <input type="checkbox" id="m_checkbox_true_{{playerButton.playerId}}" checklist-value="playerButton.playerId" checklist-model="vm.miserieSelectionTrue"/>
-                                    <label for="m_checkbox_true_{{playerButton.playerId}}"></label></td>
-                                <td>  <input type="checkbox" id="m_checkbox_false_{{playerButton.playerId}}" checklist-value="playerButton.playerId" checklist-model="vm.miserieSelectionFalse"/>
-                                    <label for="m_checkbox_false_{{playerButton.playerId}}"></label></td>
-
-                            </tr>
-
-
-                            </tbody>
-                        </table>
-
-                        <button class="button button-outline button-dark" type="button" ng-click="vm.miserie()">Calculate!</button>
-                      </div>
-
-                </li>
-
-
-
-
-
-            </ul>
-        </div>
-
-    </ion-content>
+  </ion-content>
 </ion-view>

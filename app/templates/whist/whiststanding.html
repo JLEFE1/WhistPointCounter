@@ -6,70 +6,66 @@
 
         <div class="container">
           <div class="row">
-            <div class="col col-47">
-              <div class="list card">
-                <div class="item item-avatar">
-                  <img src="images/ionic.png">
-                  <input class="card-title" type="text" name="input" ng-model="vm.game.players[0].name"
-                         placeholder="Add name" required="required">
-                  <span class="card-title">Points: {{vm.game.players[0].totalPoints}}</span>
+            <div class="col">
+              <div class="card">
+                <div class="item item-divider">
+                  <span class="card-title">{{vm.game.players[0].name}} </span>
                 </div>
-
-                <div class="item item-body">
-                  <p ng-click="vm.fetchPlayerStatistics(vm.game.players[0].id)">
-                    <a href="#">Stats</a>
-                  </p>
+                <div class="item item-text-wrap">
+                  {{vm.game.players[0].totalPoints}}
+                </div>
+                <div class="item item-divider tabs-icon-center">
+                  <a class="tab-item" href="#" ng-click="vm.fetchPlayerStatistics(vm.game.players[0].id)">
+                    <i class="icon ion-arrow-graph-up-right"></i>
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="col col-47">
-              <div class="list card">
-                <div class="item item-avatar">
-                  <img src="images/ionic.png">
-                  <input class="card-title" type="text" name="input" ng-model="vm.game.players[1].name"
-                         placeholder="Add name" required="required">
-                  <span class="card-title">Points: {{vm.game.players[1].totalPoints}}</span>
+            <div class="col">
+              <div class="card">
+                <div class="item item-divider">
+                  <span class="card-title">{{vm.game.players[1].name}} </span>
                 </div>
-
-                <div class="item item-body">
-                  <p ng-click="vm.fetchPlayerStatistics(vm.game.players[1].id)">
-                    <a href="#">Stats</a>
-                  </p>
+                <div class="item item-text-wrap">
+                  {{vm.game.players[1].totalPoints}}
+                </div>
+                <div class="item item-divider tabs-icon-center">
+                  <a class="tab-item" href="#" ng-click="vm.fetchPlayerStatistics(vm.game.players[1].id)">
+                    <i class="icon ion-arrow-graph-up-right"></i>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col col-35">
-              <div class="list card">
-                <div class="item item-avatar">
-                  <img src="images/ionic.png">
-                  <input class="card-title" type="text" name="input" ng-model="vm.game.players[2].name"
-                         placeholder="Add name" required="required">
-                  <span class="card-title">Points: {{vm.game.players[2].totalPoints}}</span>
+            <div class="col">
+              <div class="card">
+                <div class="item item-divider">
+                  <span class="card-title">{{vm.game.players[2].name}} </span>
                 </div>
-
-                <div class="item item-body">
-                  <p ng-click="vm.fetchPlayerStatistics(vm.game.players[2].id)">
-                    <a href="#">Stats</a>
-                  </p>
+                <div class="item item-text-wrap">
+                  {{vm.game.players[2].totalPoints}}
+                </div>
+                <div class="item item-divider tabs-icon-center">
+                  <a class="tab-item" href="#" ng-click="vm.fetchPlayerStatistics(vm.game.players[2].id)">
+                    <i class="icon ion-arrow-graph-up-right"></i>
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="col col-35">
-              <div class="list card">
-                <div class="item item-avatar">
-                  <img src="images/ionic.png">
-                  <input class="card-title" type="text" name="input" ng-model="vm.game.players[3].name"
-                         placeholder="Add name" required="required">
-                  <span class="card-title">Points: {{vm.game.players[3].totalPoints}}</span>
+            <div class="col">
+              <div class="card">
+                <div class="item item-divider">
+                  <span class="card-title">{{vm.game.players[3].name}} </span>
                 </div>
-
-                <div class="item item-body">
-                  <p ng-click="vm.fetchPlayerStatistics(vm.game.players[3].id)">
-                    <a href="#">Stats</a>
-                  </p>
+                <div class="item item-text-wrap">
+                  {{vm.game.players[3].totalPoints}}
+                </div>
+                <div class="item item-divider tabs-icon-center">
+                  <a class="tab-item" href="#" ng-click="vm.fetchPlayerStatistics(vm.game.players[3].id)">
+                    <i class="icon ion-arrow-graph-up-right"></i>
+                  </a>
                 </div>
               </div>
             </div>

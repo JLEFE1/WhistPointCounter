@@ -9,13 +9,25 @@
 
 
             <div ng-repeat="player in vm.points">
+              <label>{{player.name}}
+              <div class="col text-center">
                 <h-number value="player.totalPoints" min="-2000000" max="1000000000" step="1"></h-number>
+                </div>
+              </label>
             </div>
+          <div ng-class="{ 'no-errors' : vm.sumEqualsZero(),  'has-errors' : !vm.sumEqualsZero()}">{{vm.calculateSum()}}</div>
 
             <button type="button" class="waves-effect waves-light btn" id="save" ng-click="vm.saveChanges()">
                 Save changes
             </button>
-        </div>
+
+          <div class="col" ng-repeat="player in vm.game.players">
+            <div class="row" > {{player.name}} </div>
+            <div class="row" ng-repeat="point in player.pointsOverview track by $index">{{point}}</div>
+          </div>
+
+
+            </div>
 
     </ion-content>
 </ion-view>

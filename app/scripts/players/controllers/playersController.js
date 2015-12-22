@@ -17,7 +17,7 @@
 
 
         vm.selectPlayer = function selectPlayer(playerId) {
-            $state.go("app.player", { id: playerId });
+            $state.go('app.player', { id: playerId });
         };
 
     }

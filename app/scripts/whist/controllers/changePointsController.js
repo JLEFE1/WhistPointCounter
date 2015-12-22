@@ -14,6 +14,8 @@
 
         vm.points = [];
 
+        vm.game = sharedPropertiesService.getGame();
+
         (function setPoints() {
             var game = sharedPropertiesService.getGame(), i;
             for (i = 0; i < game.players.length; i += 1) {
@@ -34,18 +36,22 @@
             vm.points = [];
         }
 
-        function sumEqualsZero() {
+        vm.calculateSum = function calculateSum() {
             var sum = 0, i;
             for (i = 0; i < vm.points.length; i += 1) {
-                sum = sum + vm.points[i].totalPoints;
+              sum = sum + vm.points[i].totalPoints;
             }
 
-            return sum === 0;
-        }
+            return sum;
+        };
+
+        vm.sumEqualsZero = function sumEqualsZero() {
+            return vm.calculateSum() === 0;
+        };
 
         vm.saveChanges = function saveChanges() {
 
-            if (sumEqualsZero()) {
+            if (vm.sumEqualsZero()) {
                 sharedPropertiesService.alterPoints(vm.points);
 
                 //TODO Solve problems with go back errorS

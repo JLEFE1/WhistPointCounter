@@ -21,6 +21,8 @@
         vm.miserieSelectionTrue = [];
         vm.miserieSelectionFalse = [];
 
+      vm.trull = false;
+
         vm.playerButtons = (function createButtons() {
 
             var index, buttons = [], button;
@@ -57,33 +59,51 @@
             playTypeCheck = null;
             vm.miserieSelectionTrue = [];
             vm.miserieSelectionFalse = [];
+            sharedPropertiesService.updateDealerAndBenchedPlayers();
+          console.log(sharedPropertiesService.getGame());
+        }
+
+        function goToWhistStanding(){
+          if(game.players.length & 1){
+            $state.go('app.whiststandingOdd');
+          } else {
+            $state.go('app.whiststandingEven');
+          }
         }
 
         vm.normalBidding = function normalBidding() {
-            whistService.normalBidding(vm.selectedPlayers, vm.numberOfTricks);
+            whistService.normalBidding(vm.selectedPlayers, vm.numberOfTricks, vm.trull);
 
             reset();
 
-            $state.go('app.whiststanding');
+            goToWhistStanding();
         };
 
         vm.abondance = function abondance(success) {
-            whistService.abondance(vm.selectedPlayers, success, vm.abondancePoints);
+            whistService.abondance(vm.selectedPlayers, success, vm.abondancePoints, vm.trull);
             reset();
-            $state.go('app.whiststanding');
+            goToWhistStanding();
         };
 
 
         vm.soloSlim = function soloSlim(success) {
-            whistService.soloSlim(vm.selectedPlayers, success);
+            whistService.soloSlim(vm.selectedPlayers, success, vm.trull);
             reset();
-            $state.go('app.whiststanding');
+            goToWhistStanding();
         };
 
         vm.miserie = function miserie() {
-            whistService.miserie(vm.miserieSelectionTrue, vm.miserieSelectionFalse);
+            whistService.miserie(vm.miserieSelectionTrue, vm.miserieSelectionFalse, vm.trull);
             reset();
-            $state.go('app.whiststanding');
+            goToWhistStanding();
+
+
+        };
+
+        vm.rafachol = function rafachol() {
+          whistService.normalBidding(vm.selectedPlayers, 4, vm.trull);
+          reset();
+          goToWhistStanding();
 
 
         };
